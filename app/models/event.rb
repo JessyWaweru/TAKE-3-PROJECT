@@ -3,4 +3,7 @@ class Event < ApplicationRecord
   has_many :sponsors
   has_many :speakers, dependent: :destroy
   belongs_to :user
+  belongs_to :speaker
+
+
 end
