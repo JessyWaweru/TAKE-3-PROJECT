@@ -1,9 +1,10 @@
 class SpeakersController < ApplicationController
-    before_action :set_event
+    before_action :set_event, only: [:show]
 
     def index
-      render json: Speaker.all, status: :ok
-  end
+      speakers=Speaker.all
+      render json: speakers, status: :ok
+    end
 
   # GET 
   def show
