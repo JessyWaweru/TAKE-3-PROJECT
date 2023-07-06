@@ -1,12 +1,15 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.2"
+ruby "2.7.0"
 gem 'bcrypt','~>3.1'
 gem 'active_model_serializers'
 gem 'faker'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
+
+# Gemfile
+gem 'rack-cors'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"

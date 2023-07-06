@@ -8,16 +8,16 @@ function EventDetails() {
   const { id } = useParams();
   const [event, setEvent] = useState("");
   const [isbooked, setIsbooked] = useState(false);
-  // const navigate = useNavigate();
   const auth = useAuthContext();
 
   // handle book ticket
   function handleBookTicket() {
     setIsbooked(!isbooked);
   }
+
   // get all events
   useEffect(() => {
-    fetch(`https://event-manager-1mtv.onrender.com/events/${id}`)
+    fetch(`http://127.0.0.1:3000/events/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setEvent(data);
@@ -28,9 +28,8 @@ function EventDetails() {
   }, [id]);
 
   // handle delete
-
   const handleDelete = () => {
-    fetch(`https://event-manager-1mtv.onrender.com/events/${id}`, {
+    fetch(`http://127.0.0.1:3000/events/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +47,6 @@ function EventDetails() {
   return (
     <div className="mb-10">
       {/* heading */}
-
       <div className="bg-gray-700">
         <h1 className="uppercase py-8 text-rose-100 text-4xl font-semibold text-center">
           {event.title}
@@ -58,7 +56,7 @@ function EventDetails() {
         </p>
       </div>
       {/* body */}
-      <div className="w-3/4 flex justify-between m-auto mt-8 ">
+      <div className="w-3/4 flex justify-between m-auto mt-8">
         <div className="flex flex-col w-3/4">
           {/* image */}
           <div>
@@ -80,7 +78,6 @@ function EventDetails() {
             </div>
             <p>{event.description}</p>
           </div>
-
           {/* speakers */}
           <div>
             <div className="flex gap-2 text-3xl items-center py-5">
@@ -104,7 +101,7 @@ function EventDetails() {
                 </h4>
                 <p>
                   Lorem ipsum dolor sit amet, vel ei probo inimicus instructior,
-                  his porro ubique definitionem in.{" "}
+                  his porro ubique definitionem in.
                 </p>
               </div>
               <div className="flex flex-col gap-2">
@@ -119,7 +116,7 @@ function EventDetails() {
                 </h4>
                 <p>
                   Lorem ipsum dolor sit amet, vel ei probo inimicus instructior,
-                  his porro ubique definitionem in.{" "}
+                  his porro ubique definitionem in.
                 </p>
               </div>
               <div className="flex flex-col gap-2">
@@ -134,7 +131,7 @@ function EventDetails() {
                 </h4>
                 <p>
                   Lorem ipsum dolor sit amet, vel ei probo inimicus instructior,
-                  his porro ubique definitionem in.{" "}
+                  his porro ubique definitionem in.
                 </p>
               </div>
             </div>
@@ -154,6 +151,7 @@ function EventDetails() {
             <p>Age limit:</p>
             <p className="font-bold">{event.age_limit}</p>
           </div>
+```jsx
           <div className="flex gap-2">
             <p>Capacity:</p>
             <p className="font-bold">{event.capacity}</p>
