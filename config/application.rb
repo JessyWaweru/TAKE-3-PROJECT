@@ -18,5 +18,12 @@ module EVENTSApi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # CORS configuration
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'http://localhost:3001' # Replace with the origin of your React app
+        resource '*', headers: :any, methods: [:get, :post, :patch, :put, :delete, :options]
+      end
+    end
   end
 end

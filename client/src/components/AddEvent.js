@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../providers/Auth.provider";
 import EventForm from "./EventForm";
-
 export default function AddEvent() {
   const navigate = useNavigate();
-
   const [message, setMessage] = useState("");
-
   const { user } = useAuthContext();
-
   const handleSubmit = async (event) => {
     try {
       const response = await fetch(
-        "https://event-manager-1mtv.onrender.com/events",
+        "http://127.0.0.1:3000/events",
         {
           method: "POST",
           headers: {
@@ -25,7 +21,6 @@ export default function AddEvent() {
           }),
         }
       );
-
       if (response.ok) {
         navigate("/events");
       } else {
@@ -35,6 +30,5 @@ export default function AddEvent() {
       setMessage("Failed to add event. Please try again later.");
     }
   };
-
   return <EventForm handleSubmit={handleSubmit} errorMsg={message} />;
 }
