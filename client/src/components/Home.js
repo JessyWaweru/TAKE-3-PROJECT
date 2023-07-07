@@ -21,13 +21,13 @@ function Home() {
         <div className="text-white text-xl flex flex-col pl-40 justify-center gap-6 absolute top-20 bg-white/30 h-full w-full">
           <h1 className="text-6xl font-semibold uppercase">
             You are welcomed to <br />
-            <span className="text-rose-600">GENJE</span> events.
+            <span className="text-rose-600">MIMI-KENYA</span> events.
           </h1>
           <p>
             Whether you're looking to learn something new,
             <br /> connect with like-minded individuals, or simply have a good
             time, <br />
-            GENJE has an event for you.
+            MIMI-KENYA has an event for you.
           </p>
           {!isAuth ? (
             <Link to="/signIn">
