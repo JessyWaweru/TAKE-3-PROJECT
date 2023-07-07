@@ -10,7 +10,7 @@ function Highlights(){
                 <div className="rounded-full h-40 w-40 bg-gray-400 flex items-center justify-center text-white text-4xl hover:bg-rose-600"><i className="fa-solid fa-calendar-days"></i>
                 </div>
                 <h3 className="border-b-2 border-rose-600 pb-3 font-semibold">24/7 AVAILABLE EVENTS</h3>
-                <p className="text-center">Looking for exciting and engaging events to attend? Look no further than GENJE, where we offer a variety of events for individuals of all ages and interests. </p>
+                <p className="text-center">Looking for exciting and engaging events to attend? Look no further than MIMI-KENYA, where we offer a variety of events for individuals of all ages and interests. </p>
             </div>
             <div className="flex flex-col gap-4 items-center w-60">
                 <div className="rounded-full h-40 w-40 bg-gray-400 flex items-center justify-center text-white text-4xl hover:bg-rose-600"><i className="fa-solid fa-location-dot"></i></div>
