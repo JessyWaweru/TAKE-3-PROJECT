@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
+    skip_before_action :verify_authenticity_token, only: [:create]
     def index
         render json: Event.all, status: :ok
     end
+
 
     # GET /events/{id}
     def show
@@ -28,7 +30,7 @@ class EventsController < ApplicationController
             render json: event, status: :accepted
         else
             # throw an unprocessable entity error the user
-            render json: {errors: "An error occured. Please try again"}
+            render json: { errors: event.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
@@ -65,8 +67,8 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.permit(
-            :title, :description, :location, :age_limit, :image, :capacity, :date, :user_id, 
-        )
+        params.require(:event).permit(
+            :title, :description, :location, :age_limit, :image, :capacity, :date, :user_id, :sponsor_id
+        ) 
     end
 end
