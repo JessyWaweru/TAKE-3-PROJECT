@@ -75,7 +75,7 @@ function Footer() {
         © 2023 Copyright:
         <span className="text-neutral-800 dark:text-neutral-400">
           {" "}
-          GENJE Events
+          MIMI-KENYA Events
         </span>
       </div>
     </footer>
