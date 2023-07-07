@@ -24,7 +24,7 @@ Event.create(
   age_limit: "18+",
   capacity: 5000,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+  #user_id: 1
 )
 Event.create(  
 title: "Autism foundation",
@@ -34,7 +34,7 @@ location: "Central Park, New York City",
 age_limit: "All ages",
 capacity: 5000,
 date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-user_id: 1
+#user_id: 1
 )
 Event.create(
   title: "Charity Walk",
@@ -44,7 +44,7 @@ Event.create(
   age_limit: "All ages",
   capacity: 1000,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+ # user_id: 1
 )
 Event.create(
   title: "Fast Festival",
@@ -54,7 +54,7 @@ Event.create(
   age_limit: "All ages",
   capacity: 1000,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+  #user_id: 1
 )
 Event.create(
   title: "Tech Conference",
@@ -64,7 +64,7 @@ Event.create(
   age_limit: "18+",
   capacity: 500,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+  #user_id: 1
 )
 Event.create(
   title: "Women CEOs Forum",
@@ -74,7 +74,7 @@ Event.create(
   age_limit: "18+",
   capacity: 500,
   date: Faker::Time.forward(days: 5,  period: :morning, format: :long),
-  user_id: 1
+  #user_id: 1
 )
 Event.create(
   title: "Sauti JENGE OPEN MIC",
@@ -84,7 +84,7 @@ Event.create(
   age_limit: "18+",
   capacity: 1000,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+ # user_id: 1
 )
 Event.create(
   title: "CyFrica 2023 - Kenya",
@@ -94,7 +94,7 @@ Event.create(
   age_limit: "18+",
   capacity: 100,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+  #user_id: 1
 )
 Event.create(
   title: "Book Club",
@@ -106,7 +106,7 @@ Event.create(
   age_limit: "15+",
   capacity: 50,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+  #user_id: 1
 )
 Event.create(
   title: "13th AMSUN SCIENTIFIC CONFRENCE",
@@ -116,7 +116,7 @@ Event.create(
   age_limit: "21+",
   capacity: 500,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+ # user_id: 1
 )
 Event.create(
   title: "Web Hosting and Domain Names: Everything You Need to Know",
@@ -126,7 +126,7 @@ Event.create(
   age_limit: "16+",
   capacity: 100,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+  #user_id: 1
 )
 Event.create(
   title: "We The Medicine - Healing Our Inner Child 2023. Guided Meditation.",
@@ -138,7 +138,7 @@ Event.create(
   age_limit: "18+",
   capacity: 200,
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
-  user_id: 1
+  #user_id: 1
 )
  Sponsor.create(
   title: "Google",
