@@ -17,7 +17,7 @@ function EventDetails() {
 
   // get all events
   useEffect(() => {
-    fetch(`https://event-manager-1mtv.onrender.com/events/${id}`)
+    fetch(`http://localhost:3000/events/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setEvent(data);
@@ -29,7 +29,7 @@ function EventDetails() {
 
   // handle delete
   const handleDelete = () => {
-    fetch(`https://event-manager-1mtv.onrender.com/events/${id}`, {
+    fetch(`http://localhost:3000/events/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
