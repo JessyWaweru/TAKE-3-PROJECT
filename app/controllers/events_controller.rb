@@ -2,7 +2,8 @@ class EventsController < ApplicationController
    # skip_before_action :verify_authenticity_token, only: [:create]
    protect_from_forgery with: :null_session
     def index
-        render json: Event.all, status: :ok
+        events=Event.all
+        render json: events, each_serializer: EventSerializer, status: :ok
     end
 
 

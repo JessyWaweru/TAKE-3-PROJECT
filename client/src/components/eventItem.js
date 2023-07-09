@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import formatDate from "../utilities/formatdate";
 
 export default function EventItem({ title, location, date, id, image }) {
+  
   return (
-    <div className="w-72 mx-auto bg-white rounded-xl shadow-md overflow-hidden hover:scale-110 ease-in-out duration-300 m-3">
+    <div key={id}
+         className="w-72 mx-auto bg-white rounded-xl shadow-md overflow-hidden hover:scale-110 ease-in-out duration-300 m-3">
       <div>
         <img
           className="w-full h-1/2"
@@ -27,10 +29,10 @@ export default function EventItem({ title, location, date, id, image }) {
           <p className="font-bold">{formatDate(date)}</p>
         </div>
         <Link to={`/EventDetails/${id}`}>
-          <button className="bg-rose-600 hover:opacity-80 text-white px-4 py-2 rounded-lg">
+            <button className="bg-rose-600 hover:opacity-80 text-white px-4 py-2 rounded-lg">
             Details
-          </button>
-        </Link>
+           </button>
+       </Link>
       </div>
     </div>
   );
