@@ -6,8 +6,8 @@ function Searchbar({ setSearchValue, handleSearch }) {
           placeholder="search events"
           className="flex-1 outline-none"
           onChange={(e) => setSearchValue(e.target.value)}
+          onClick={handleSearch}
         />
-        <button onClick={handleSearch}></button>
       </>
     );
 }
