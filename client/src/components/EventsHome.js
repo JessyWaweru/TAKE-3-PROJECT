@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function EventsHome() {
   const [events, setEvents] = useState([]);
   useEffect(() => {
-    fetch("https://event-manager-1mtv.onrender.com/events")
+    fetch("http://localhost:3000/events")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

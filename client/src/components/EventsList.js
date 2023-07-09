@@ -6,7 +6,7 @@ const EventsList = () => {
   const [events, setEvents] = useState([]);
   // get all events
   useEffect(() => {
-    fetch("https://event-manager-1mtv.onrender.com/events")
+    fetch("http://localhost:3000/events")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

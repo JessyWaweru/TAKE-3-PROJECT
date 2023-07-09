@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    protect_from_forgery with: :null_session
+
     def index
         #get users
         render json: User.all, status: :ok

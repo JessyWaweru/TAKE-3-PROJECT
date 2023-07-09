@@ -18,7 +18,7 @@ export default function ResetPassword() {
     event.preventDefault();
 
     const response = await fetch(
-      "https://event-manager-1mtv.onrender.com/users/:id",
+      "http://localhost:3000/users/:id",
       {
         method: "PATCH",
         headers: {
