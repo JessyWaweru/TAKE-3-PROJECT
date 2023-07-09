@@ -1,20 +1,36 @@
 import React, { useState } from "react";
+//import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp() {
+  //const [csrfToken, setCsrfToken] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
-  const [isloading, setIsLoading] = useState(false);
-  // const [errorMessage, setErrorMessage] = useState(null);
+  const [isLoading, setisLoading] = useState(false);
+
+  /*useEffect(() => {
+    fetchCsrfToken();
+  }, []);
+
+  const fetchCsrfToken = async () => {
+    try {
+      const response = await fetch("/api/csrf-token");
+      const data = await response.json();
+      setCsrfToken(data.csrfToken);
+    } catch (error) {
+      console.error("Failed to fetch CSRF token:", error);
+    }
+  };*/
+  
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    setIsLoading(true);
+    setisLoading(true);
 
     const userDetails = {
       username: username,
@@ -24,38 +40,41 @@ export default function SignUp() {
       gender: gender,
     };
 
-    fetch("https://event-manager-1mtv.onrender.com/users", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3001",
+        //"X-CSRF-Token": csrfToken
       },
       body: JSON.stringify(userDetails),
+      //credentials: "include",
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Registration failed. Please try again.");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        localStorage.setItem("user", JSON.stringify(data));
-        window.location.href = "/events";
-      })
-      .catch((error) => {
-        toast.error(error.message);
-        setIsLoading(false);
-      });
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Registration failed. Please try again.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      localStorage.setItem("user", JSON.stringify(data));
+      window.location.href = "/events";
+    })
+    .catch((error) => {
+      toast.error(error.message);
+      setisLoading(false);
+    });
   }
 
   return (
-    <div class="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-screen">
       <ToastContainer />
 
       <form
         onSubmit={handleFormSubmit}
         className="border w-96 rounded-lg shadow-lg p-4 flex flex-col gap-4"
       >
-        <h1 class="text-center text-2xl text-rose-600">Sign Up Here</h1>
+        <h1 className="text-center text-2xl text-rose-600">Sign Up Here</h1>
         <h3 className="">Username</h3>
         <div>
           <input
@@ -110,14 +129,13 @@ export default function SignUp() {
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="rather not say">Rather not say</option>
-
           </select>
         </div>
         <button
           type="submit"
           className="bg-rose-600 rounded-lg w-48 p-3 mt-2 text-white hover:opacity-80 m-auto"
         >
-          {!isloading ? (
+          {!isLoading ? (
             "Sign up"
           ) : (
             <div>

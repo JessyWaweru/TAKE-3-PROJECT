@@ -11,7 +11,7 @@ export default function UpdateEvent() {
   useEffect(() => {
     const getEvent = async () => {
       const response = await fetch(
-        `https://event-manager-1mtv.onrender.com/events/${id}`
+        `http://localhost:3000/events/${id}`
       );
       const data = await response.json();
       setEvent(data);
@@ -22,7 +22,7 @@ export default function UpdateEvent() {
   const handleUpdateEvent = async (eventDetails) => {
     try {
       const response = await fetch(
-        `https://event-manager-1mtv.onrender.com/events/${id}`,
+        `http://localhost:3000/events/${id}`,
         {
           method: "PUT",
           headers: {
