@@ -33,6 +33,10 @@ const EventsList = () => {
   }, []);
 
   return (
+    <div className="bg-https://images.unsplash.com/photo-1637625854255-d893202554f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80"
+      style={{
+        backgroundImage:`url('https://images.unsplash.com/photo-1637625854255-d893202554f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80')`
+      }}>
     <div className="w-3/4 m-auto p-4 flex flex-col gap-4 min-h-screen">
       <div className="flex gap-2 text-4xl items-center py-5 mx-auto">
         <div className="h-24 w-24 rounded-full bg-rose-600 text-white flex items-center justify-center">
@@ -71,6 +75,7 @@ const EventsList = () => {
             ))
           : events.map((event) => <EventItem key={event.id} {...event} />)}
       </div>
+    </div>
     </div>
   );
 };
