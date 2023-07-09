@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
             },
             exp: Time.now.to_i + (6*3600)
         }
-        JWT.encode(payload, "secret")
+       # JWT.encode(payload, "secret") => commented out
     end
 
     def decode_token
