@@ -151,7 +151,7 @@ function EventDetails() {
             <p>Age limit:</p>
             <p className="font-bold">{event.age_limit}</p>
           </div>
-```jsx
+
           <div className="flex gap-2">
             <p>Capacity:</p>
             <p className="font-bold">{event.capacity}</p>
