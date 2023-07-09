@@ -1,9 +1,24 @@
 import React, { useEffect, useState } from "react";
 import EventItem from "./eventItem";
 import { Link } from "react-router-dom";
+import Searchbar from "./Searchbar";
 
 const EventsList = () => {
   const [events, setEvents] = useState([]);
+
+  //handling searchbar
+  const [searchValue,setSearchValue]=useState("")
+  const [filteredEvents, setFilteredEvents] = useState([]);
+    //search parameter is the title
+    const handleSearch = () => {
+      console.log("search button clicked")
+       const filteredEvents=events.filter((event) =>
+        event.title.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredEvents(filteredEvents);
+    }; 
+  
+
   // get all events
   useEffect(() => {
     fetch("http://localhost:3000/events")
@@ -30,7 +45,8 @@ const EventsList = () => {
 
       <div className="flex items-center justify-between w-full">
         <div className="border px-4 py-2 rounded-full flex-1 mr-10 flex justify-between items-center">
-          <input placeholder="search events" className="flex-1 outline-none" />
+          <Searchbar setSearchValue={setSearchValue} handleSearch={handleSearch}/>
+          <button onClick={handleSearch}>SEARCH</button>
           <i className="fa-solid fa-magnifying-glass text-gray-500"></i>
         </div>
         <Link to="/addEvent">
@@ -46,9 +62,14 @@ const EventsList = () => {
           .map((e) => (
             <EventItem key={Math.random()} />
           ))} */}
-        {events.map((event) => (
+        {/*events.map((event) => (
           <EventItem key={event.id} {...event} />
-        ))}
+        ))*/}
+        {filteredEvents.length > 0
+          ? filteredEvents.map((event) => (
+              <EventItem key={event.id} {...event} />
+            ))
+          : events.map((event) => <EventItem key={event.id} {...event} />)}
       </div>
     </div>
   );
