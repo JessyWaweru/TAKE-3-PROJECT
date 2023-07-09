@@ -3,7 +3,7 @@ class SpeakersController < ApplicationController
 
     def index
       speakers=Speaker.all
-      render json: speakers, status: :ok
+      render json: speakers,each_serializer: SpeakerSerializer, status: :ok
     end
 
   # GET 

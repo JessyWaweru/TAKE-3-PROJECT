@@ -85,55 +85,32 @@ function EventDetails() {
                 <i className="fa-solid fa-users"></i>
               </div>
               <h3 className="text-gray-700 border-b-2 border-rose-600 font-bold uppercase">
-                speakers
+                GUEST OF HONOR;
               </h3>
             </div>
-            <div className="flex justify-evenly items-center">
+            <div>
+            {event.speakers && event.speakers.length>0 &&(
+            <div className="flex justify-evenly items-center"> 
+            {event.speakers.map((speaker)=>(
               <div className="flex flex-col gap-2">
-                <img
-                  src="https://media.istockphoto.com/id/1144287292/photo/headshot-portrait-of-happy-mixed-race-african-girl-wearing-glasses.jpg?b=1&s=170667a&w=0&k=20&c=JosednIBilI8XY47p_R75vNPRPVNm7ky4JB1DhJCoS4="
-                  alt="speakers"
-                  className="w-44 h-44 rounded-full border-4 border-gray-300"
-                />
-                <h3 className="text-2xl font-bold text-gray-700">John Doe</h3>
-                <h4 className="text-rose-600 font-semibold text-xl">
-                  Software Developer
-                </h4>
-                <p>
-                  Lorem ipsum dolor sit amet, vel ei probo inimicus instructior,
-                  his porro ubique definitionem in.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <img
-                  src="https://media.istockphoto.com/id/1144287292/photo/headshot-portrait-of-happy-mixed-race-african-girl-wearing-glasses.jpg?b=1&s=170667a&w=0&k=20&c=JosednIBilI8XY47p_R75vNPRPVNm7ky4JB1DhJCoS4="
-                  alt="speakers"
-                  className="w-44 h-44 rounded-full border-4 border-gray-300"
-                />
-                <h3 className="text-2xl font-bold text-gray-700">John Doe</h3>
-                <h4 className="text-rose-600 font-semibold text-xl">
-                  Software Developer
-                </h4>
-                <p>
-                  Lorem ipsum dolor sit amet, vel ei probo inimicus instructior,
-                  his porro ubique definitionem in.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <img
-                  src="https://media.istockphoto.com/id/1144287292/photo/headshot-portrait-of-happy-mixed-race-african-girl-wearing-glasses.jpg?b=1&s=170667a&w=0&k=20&c=JosednIBilI8XY47p_R75vNPRPVNm7ky4JB1DhJCoS4="
-                  alt="speakers"
-                  className="w-44 h-44 rounded-full border-4 border-gray-300"
-                />
-                <h3 className="text-2xl font-bold text-gray-700">John Doe</h3>
-                <h4 className="text-rose-600 font-semibold text-xl">
-                  Software Developer
-                </h4>
-                <p>
-                  Lorem ipsum dolor sit amet, vel ei probo inimicus instructior,
-                  his porro ubique definitionem in.
-                </p>
-              </div>
+                 
+                 <img
+                         src={speaker.image}
+                         alt="speaker"
+                         className="w-44 h-44 rounded-full border-4 border-gray-300"
+                  
+                        />
+                        
+                   <h3 className="text-2xl font-bold text-gray-700">NAME:---{speaker.name}---</h3>
+                   <h3 className="text-2xl font-bold text-gray-700">ORGANIZATION:---{speaker.organisation}---</h3>
+                   <h3 className="text-2xl font-bold text-gray-700">JOB TITLE:---{speaker.job_title}---</h3>
+                  
+                  
+                  
+                  </div>))}
+              </div>)}
+              
+             
             </div>
           </div>
         </div>
@@ -143,15 +120,26 @@ function EventDetails() {
             <p>Location:</p>
             <p className="font-bold">{event.location}</p>
           </div>
+
           <div className="flex gap-2">
             <p>Date:</p>
             <p className="font-bold">{formatDate(event.date)}</p>
           </div>
+
+          <div className="flex gap-2">
+            <p>Price in ksh:</p>
+            <p className="font-bold">{event.price}</p>
+          </div>
+
           <div className="flex gap-2">
             <p>Age limit:</p>
             <p className="font-bold">{event.age_limit}</p>
           </div>
-
+         
+          <div className="flex gap-2">
+            <p>EVENT PLANNER:</p>
+            <p className="font-bold">{event.event_planner_name}</p>
+          </div>
           <div className="flex gap-2">
             <p>Capacity:</p>
             <p className="font-bold">{event.capacity}</p>
