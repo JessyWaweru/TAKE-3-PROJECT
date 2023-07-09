@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module EVENTSApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    #config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -19,10 +19,12 @@ module EVENTSApi
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     # CORS configuration
+    #protect_from_forgery with: :exception#added this
+    config.action_controller.default_protect_from_forgery = true
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3001' # Replace with the origin of your React app
-        resource '*', headers: :any, methods: [:get, :post, :patch, :put, :delete, :options]
+        origins 'http://localhost:3001'
+        resource '*', headers: :any, methods: [:get, :post, :patch, :put, :delete, :options], credentials: true
       end
     end
   end

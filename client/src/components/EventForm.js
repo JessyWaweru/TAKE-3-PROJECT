@@ -17,25 +17,20 @@ export default function EventForm({
   eventData = undefined,
   errorMsg,
   handleSubmit,
-}) {
-  console.log(eventData);
+ }) {
+  //console.log(eventData);
 
   const [title, setTitle] = useState(eventData?.title || "");
-
   const [description, setDescription] = useState(eventData?.description || "");
   const [location, setLocation] = useState(eventData?.location || "");
   const [ageLimit, setAgeLimit] = useState(eventData?.age_limit || "");
-  const [date, setDate] = useState(
-    eventData?.date ? formatDateTime(eventData?.date) : null
-  );
-
+  const [date, setDate] = useState(eventData?.date ? formatDateTime(eventData?.date) : "");
   const [image, setImage] = useState(eventData?.image || "");
-
   const [capacity, setCapacity] = useState(eventData?.capacity || "");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    handleSubmit({
+    const newEvent = {
       location,
       age_limit: ageLimit,
       title: title,
@@ -43,14 +38,17 @@ export default function EventForm({
       date: new Date(date),
       image,
       capacity,
-    });
+    };
+    handleSubmit(newEvent);
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen mb-5">
       <form
+        id="Add Event"
         onSubmit={onSubmit}
         className="w-1/2 border rounded-lg shadow-lg p-4 flex flex-col gap-4"
+        method="post"
       >
         <h1 className="text-center text-2xl text-rose-600 uppercase">
           {isUpdatePage ? "Update this event" : "Create a new event"}
@@ -124,6 +122,7 @@ export default function EventForm({
         <button
           type="submit"
           className="bg-rose-600 rounded-lg w-48 p-3 mt-2 text-white hover:opacity-80 m-auto"
+          
         >
           {isUpdatePage ? "Update" : "Create"} Event
         </button>

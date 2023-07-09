@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: [:create]
+   # skip_before_action :verify_authenticity_token, only: [:create]
+   protect_from_forgery with: :null_session
     def index
         render json: Event.all, status: :ok
     end
@@ -67,8 +68,6 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(
-            :title, :description, :location, :age_limit, :image, :capacity, :date, :user_id, :sponsor_id
-        ) 
+        params.permit(:title, :description, :location, :age_limit, :image, :capacity, :date)
     end
 end
