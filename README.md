@@ -53,11 +53,6 @@ Start React client to open in browser
   npm run start
 To run it in production, install
 
-deployment link :
-
-           - front end
-
-           - backend
 
 Using the Application
 Sign up or log in to the application to view all events.
