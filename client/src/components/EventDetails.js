@@ -43,7 +43,7 @@ function EventDetails() {
         console.error("Error:", error);
       });
   };
-
+ 
   return (
     <div className="bg-https://images.unsplash.com/photo-1637625854255-d893202554f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80"
       style={{
