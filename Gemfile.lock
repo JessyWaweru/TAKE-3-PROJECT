@@ -163,7 +163,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    reline (0.3.5)
+    reline (0.3.6)
       io-console (~> 0.5)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
@@ -175,6 +175,7 @@ GEM
     sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stripe (8.5.0)
     thor (1.2.2)
     timeout (0.4.0)
     turbo-rails (1.4.0)
@@ -210,6 +211,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  stripe
   turbo-rails
   tzinfo-data
   web-console
